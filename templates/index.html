@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>{% block title %}{% endblock %}</title>
+    {% block customstyle %}
+    <link rel="stylesheet" type="text/css" href="{% static 'vue/css/app.css' %}">
+    {% endblock %}
+</head>
+
+<body>
+    {% block content %}
+    {{ django_data|json_script:"django_data" }}
+    {% csrf_token %}
+    <div id="app">
+
+    </div>
+    {% endblock %}
+
+    {% block customjs %}
+    <!-- <script>
+        window.base_url = '{{ base_url }}';
+    </script> -->
+    <script type="text/javascript" src="{% static 'vue/js/chunk-vendors.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vue/js/app.js' %}"></script>
+    {% endblock %}
+</body>
+
+</html>
