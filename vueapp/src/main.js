@@ -1,7 +1,7 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from "vue"
+import App from "./App.vue"
 
-
+import DashBoard from "./components/DashBoard";
 import { createRouter, createWebHistory } from "vue-router";
 import store from "./store.js";
 //axios api wrapper
@@ -9,7 +9,7 @@ import axios from "./api.js";
 
 
 const routes = [
-    
+    { path: '', component: DashBoard },
 ]
 
 
@@ -29,5 +29,5 @@ app.config.globalProperties.$filters = {
 
 app.use(router)
 app.use(store)
-app.mount('#app')
+app.mount("#app")
 

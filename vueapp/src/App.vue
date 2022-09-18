@@ -5,7 +5,7 @@
       :can-cancel="false"
       :is-full-page="true"
     ></loading>
-    <spider-error :show="spiderError"></spider-error>
+    <app-error :show="appError"></app-error>
     <router-view class="p-0 m-0 w-100" />
   </div>
 </template>
@@ -28,7 +28,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["isLoading", "spiderError"]),
+    ...mapGetters(["isLoading", "appError"]),
   },
 
   mounted() {
